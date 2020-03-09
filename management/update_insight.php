@@ -13,14 +13,6 @@ if($_SESSION['admin'])
     {
         $aid = $row['id'];
         $role = $row['role'];
-
-        if($role>1)
-        {
-            $state = 0;
-        }
-        else{
-            $state = 1;
-        }
     }
 
     $id = intval($_GET['id']);
@@ -39,6 +31,7 @@ if($_SESSION['admin'])
 
             $aid = $row['author'];
             $cid = $row['category'];
+            $state = $row['state'];
 
             //get category
             $where = array('id'=>$cid);
@@ -363,6 +356,30 @@ else
                                             </div>
                                         </div>
                                     </div>
+
+
+                                    <?php
+                                    if($role == 1){
+                                        ?>
+                                        <div class="form-group  col-md-6">
+                                        <label for="exampleInputEmail1">State</label>
+                                        <select name="state" class="form-control">
+                                        <?php
+                                        if($state == 0)
+                                        {
+                                            echo "<option value='0'>Not approved</option>";
+                                            echo "<option value='1'>Approved</option>";
+                                        }
+                                        else{
+                                            echo "<option value='1'>Approved</option>";
+                                            echo "<option value='0'>Not approved</option>";
+                                        }
+                                        ?>
+                                        </select>
+                                    </div>
+                                        <?php
+                                    }
+                                    ?>
 
                                 </div>
                                 <!-- /.card-body -->
