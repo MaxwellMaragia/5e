@@ -10,7 +10,7 @@ else{
 
     include_once 'functions/actions.php';
     $obj = new DataOperations();
-    $error = $success = '';
+    $error = $success = $title= $description = $deadline = '';
 
 
     if(isset($_POST['submit'])){
@@ -34,8 +34,16 @@ else{
             } else if($_FILES['document']['size'] > 1) {
 
                 //save document to folder and database
-                $document = "documents/".$_FILES['document']['name'];
-                move_uploaded_file($_FILES['document']['tmp_name'],$document);
+
+                //rename file before uploading
+                $filename   = uniqid() . "_" . time(); // 5dab1961e93a7_1571494241
+                $extension  = pathinfo( $_FILES["document"]["name"], PATHINFO_EXTENSION ); // jpg,pdf
+                $basename   = $filename . '.' . $extension; // 5dab1961e93a7_1571494241.jpg
+                $source       = $_FILES["document"]["tmp_name"];
+                $document = "documents/" . $basename;
+
+                /* move the file */
+                move_uploaded_file( $source, $document );
 
                 $data = array('title'=>$title,'description'=>$description,'media'=>$document,'date'=>$date,'contract'=>$contract,'state'=>$state,'deadline'=>$deadline);
 
@@ -51,6 +59,7 @@ else{
         if($obj->insert_record('careers',$data))
         {
             $success = "Posting added successfully";
+            $title= $description = $deadline = '';
         }
         else{
             $error = "Error adding post";
@@ -129,14 +138,14 @@ else{
                                 <div class="card-body">
                                     <div class="form-group  col-md-6">
                                         <label for="exampleInputEmail1">Title</label>
-                                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="eg Procurement officer" name="title" required="required" >
+                                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="eg Procurement officer" name="title" required="required" value="<?=$title?>">
                                     </div>
 
                                     <div class="form-group" style="margin-left:8px;">
                                         <label for="exampleInputEmail1">Description</label>
                                         <textarea class="textarea" placeholder="Place some text here"
                                                   style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="description">
-
+                                        <?=$description?>
                                     </textarea>
                                     </div>
 
@@ -158,7 +167,7 @@ else{
 
                                     <div class="form-group col-md-6">
                                         <label for="exampleInputEmail1">Deadline</label>
-                                        <input type="date" class="form-control" id="exampleInputEmail1" name="deadline" required="required" >
+                                        <input type="date" class="form-control" id="exampleInputEmail1" name="deadline" required="required" value="<?=$deadline?>" >
                                     </div>
 
                                     <div class="form-group  col-md-6">

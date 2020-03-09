@@ -38,8 +38,12 @@ else{
                 //unlink previous image first
                 unlink($image);
                 //save image to folder and database
-                $new_image = "images/team/".$_FILES['image']['name'];
-                move_uploaded_file($_FILES['image']['tmp_name'],$new_image);
+                $filename   = uniqid() . "_" . time(); // 5dab1961e93a7_1571494241
+                $extension  = pathinfo( $_FILES["image"]["name"], PATHINFO_EXTENSION ); // jpg,pdf
+                $basename   = $filename . '.' . $extension; // 5dab1961e93a7_1571494241.jpg
+                $source  = $_FILES["image"]["tmp_name"];
+                $new_image = "images/team/" . $basename;
+                move_uploaded_file( $source, $new_image );
 
                 $data = array(
 

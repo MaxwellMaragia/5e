@@ -41,8 +41,13 @@ else{
             } else if($_FILES['image']['size'] > 1) {
 
                 //save image to folder and database
-                $image = "images/".$_FILES['image']['name'];
-                move_uploaded_file($_FILES['image']['tmp_name'],$image);
+                unlink($_POST['c_image']);
+                $filename   = uniqid() . "_" . time(); // 5dab1961e93a7_1571494241
+                $extension  = pathinfo( $_FILES["image"]["name"], PATHINFO_EXTENSION ); // jpg,pdf
+                $basename   = $filename . '.' . $extension; // 5dab1961e93a7_1571494241.jpg
+                $source       = $_FILES["image"]["tmp_name"];
+                $image = "images/" . $basename;
+                move_uploaded_file( $source, $image );
                 $data = array('value'=>$image);
                 $where = array('name'=>'youtube_section_image');
                 $obj->update_record('home',$where,$data);
@@ -151,6 +156,7 @@ else{
                                         <div class="input-group">
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input" id="exampleInputFile" name="image" accept="image/*">
+                                                <input type="hidden" value=<?=$banner_image?> name="c_image">
                                                 <label class="custom-file-label" for="exampleInputFile">Choose background image</label>
                                             </div>
                                             <div style="margin-top:20px;" class="input-group">

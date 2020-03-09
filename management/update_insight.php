@@ -122,9 +122,16 @@ if($_SESSION['admin'])
                     } else if($_FILES['image_file']['size'] > 1) {
 
                         //save image to folder and database
-                        $image = "images/blog/".$_FILES['image_file']['name'];
+                       
                         unlink($file);
-                        move_uploaded_file($_FILES['image_file']['tmp_name'],$image);
+                        $filename   = uniqid() . "_" . time(); // 5dab1961e93a7_1571494241
+                        $extension  = pathinfo( $_FILES["image_file"]["name"], PATHINFO_EXTENSION ); // jpg,pdf
+                        $basename   = $filename . '.' . $extension; // 5dab1961e93a7_1571494241.jpg
+                        $source       = $_FILES["image_file"]["tmp_name"];
+                        $image = "images/blog/" . $basename;
+
+                /* move the file */
+                move_uploaded_file( $source, $image );
                         $data = array(
                             'category'=>$category,
                             'heading'=>$heading,
@@ -149,9 +156,15 @@ if($_SESSION['admin'])
                     } else if($_FILES['video_file']['size'] > 1) {
 
                         //save image to folder and database
-                        $video = "videos/blog/".$_FILES['video_file']['name'];
+                        
                         unlink($file);
-                        move_uploaded_file($_FILES['video_file']['tmp_name'],$video);
+                        $filename   = uniqid() . "_" . time(); // 5dab1961e93a7_1571494241
+                        $extension  = pathinfo( $_FILES["video_file"]["name"], PATHINFO_EXTENSION ); // jpg,pdf
+                        $basename   = $filename . '.' . $extension; // 5dab1961e93a7_1571494241.jpg
+                        $source       = $_FILES["video_file"]["tmp_name"];
+                        $video = "videos/blog/" . $basename;
+                        move_uploaded_file( $source, $video );
+
                         $data = array(
                             'category'=>$category,
                             'heading'=>$heading,

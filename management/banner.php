@@ -89,8 +89,12 @@ else{
                 unlink($video_url);
 
                 //save video to folder and database
-                $video = "videos/".$_FILES['video']['name'];
-                move_uploaded_file($_FILES['video']['tmp_name'],$video);
+                $filename   = uniqid() . "_" . time(); // 5dab1961e93a7_1571494241
+                $extension  = pathinfo( $_FILES["video"]["name"], PATHINFO_EXTENSION ); // jpg,pdf
+                $basename   = $filename . '.' . $extension; // 5dab1961e93a7_1571494241.jpg
+                $source  = $_FILES["video"]["tmp_name"];
+                $video = "videos/" . $basename;
+                move_uploaded_file( $source, $video );
                 $data = array('value'=>$video);
                 $where = array('name'=>'video');
                 $obj->update_record('home',$where,$data);

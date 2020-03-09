@@ -180,7 +180,7 @@ $youtube = $get_data['value'];
                                               ?>
 
                                           </a>
-                                          <div class="blog-categories bg-white  text-extra-small alt-font"><a><?=$category?></a></div>
+                                          <div class="blog-categories bg-white  text-extra-small alt-font"><a href="insights_category?id=<?=$get_insight['category']?>"><?=$category?></a></div>
                                       </div>
                                       <div class="post-details inner-match-height padding-40px-all sm-padding-20px-all xs-padding-30px-tb" style="height:200px">
                                           <div class="blog-hover-color"></div>
