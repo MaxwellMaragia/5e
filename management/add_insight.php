@@ -174,17 +174,12 @@ else
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
-        <div class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                    </div><!-- /.col -->
-                    <div class="col-sm-6">
-
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
-        </div>
+        <section class="content-header">
+            <ol class="breadcrumb">
+                <li><a href="insights"><i class="fa fa-dashboard"></i> Insights/</a></li>
+                <li class="active">Add insight</li>
+            </ol>
+        </section>
         <!-- /.content-header -->
 
         <!-- Main content -->
@@ -218,7 +213,8 @@ else
                             <form role="form" method="post" action="" enctype="multipart/form-data">
                                 <div class="card-body">
                                     <div class="form-group col-md-6">
-                                        <label for="exampleInputEmail1">Category</label>
+                                    <p>Fields marked with (<span class="text-danger">*</span>) are required</p>
+                                        <label for="exampleInputEmail1">Category<span class="text-danger">*</span></label>
                                         <select name="category" required="required" class="form-control">
                                             <option value="">Select category</option>
                                             <?php
@@ -233,19 +229,19 @@ else
                                         </select>
                                     </div>
                                     <div class="form-group  col-md-6">
-                                        <label for="exampleInputEmail1">Title</label>
+                                        <label for="exampleInputEmail1">Title<span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="exampleInputEmail1" placeholder="News title" name="title" required value="<?=$heading?>">
                                     </div>
 
                                     <div class="form-group" style="margin-left:8px;">
-                                        <label for="exampleInputEmail1">Description</label>
+                                        <label for="exampleInputEmail1">Description<span class="text-danger">*</span></label>
                                         <textarea class="textarea" placeholder="Place some text here"
                                                   style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="body" required="required">
                                         <?=$body?>
                                     </textarea>
                                     </div>
 
-                                    <label for="exampleInputEmail1" style="margin-left:7px;">Media type</label><br>
+                                    <label for="exampleInputEmail1" style="margin-left:7px;">Media type<span class="text-danger">*</span></label><br>
                                     <div class="form-group row">
 
                                         <div class="custom-control custom-radio" style="margin-left:13px;">

@@ -8,7 +8,7 @@
   $role=$display['role'];
 
  ?>
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-dark-primary elevation-4" style="zoom:90%;">
     <!-- Brand Logo -->
     <a href="index" class="brand-link">
         <!-- <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
@@ -21,14 +21,13 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="info"><a>
-                <?php if(isset($role)){
-                    if($role==1){
-                      echo 'Admin';
-                    }else{
-                      echo 'Editor';
-                    }
+                <?php 
+                if($_SESSION['names']){
+                    
+                   echo $_SESSION['names'];
 
-                } ?></a>
+                } 
+                ?></a>
             </div>
         </div>
 
@@ -38,7 +37,11 @@
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
 
-                <li class="nav-item">
+               <?php
+                if(isset($role)){
+                    if($role==1){
+                      ?>
+                       <li class="nav-item">
                     <a href="index" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
@@ -58,13 +61,13 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="banner" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                
                                 <p>Banner/intro section</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="youtube" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                
                                 <p>Youtube video section</p>
                             </a>
                         </li>
@@ -82,19 +85,19 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="about_section" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                
                                 <p>About section</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="blue_section" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                
                                 <p>Blue section</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="ceo_section" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                
                                 <p>CEO's section</p>
                             </a>
                         </li>
@@ -112,13 +115,13 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="add_service" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                
                                 <p>Add new</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="services" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                               
                                 <p>View all</p>
                             </a>
                         </li>
@@ -136,13 +139,13 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="add_member" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                               
                                 <p>Add new</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="members" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                
                                 <p>View all</p>
                             </a>
                         </li>
@@ -160,19 +163,19 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="add_insight" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                
                                 <p>add new</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="insights" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                
                                 <p>View all</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="categories" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                
                                 <p>Categories</p>
                             </a>
                         </li>
@@ -190,13 +193,13 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="add_career" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                
                                 <p>add new</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="careers" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                
                                 <p>View all</p>
                             </a>
                         </li>
@@ -214,13 +217,13 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="add_review" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                               
                                 <p>add new</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="reviews" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                
                                 <p>View all</p>
                             </a>
                         </li>
@@ -275,19 +278,59 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="add_staff" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                               
                                 <p>add new</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="view_staff" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="nav-icon"></i>
                                 <p>View all</p>
                             </a>
                         </li>
                     </ul>
                 </li>
 
+                      <?php
+                    }
+                    else{
+                     ?>
+                     <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-list"></i>
+                        <p>
+                            Insights
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="add_insight" class="nav-link">
+                                
+                                <p>add new</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="insights" class="nav-link">
+                                
+                                <p>View all</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="categories" class="nav-link">
+                                
+                                <p>Categories</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                     <?php
+                    }
+
+                } 
+                ?>
+
+               
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

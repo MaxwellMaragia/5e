@@ -102,7 +102,18 @@ else{
                                                 <td><?=$row['date']?></td>
                                                 <td><?=$row['deadline']?></td>
                                                 <td><?=$row['contract']?></td>
-                                                <td><?=$row['state']?></td>
+                                                <td>
+                                                <?php 
+                                                if($row['media']){
+                                                    ?>
+                                                    <a target="_blank" href="<?=$row['media']?>"><?=$row['media']?></a>
+                                                    <?php
+                                                }
+                                                else{
+                                                    echo "Not uploaded";
+                                                }
+                                                ?>
+                                                </td>
                                                 <td><?=$job?></td>
                                                 <td>
                                                     <a href="update_career?id=<?=$row['id']?>" class="btn btn-sm btn-info"><span class="fa fa-edit"></span></a>

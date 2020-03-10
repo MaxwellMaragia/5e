@@ -53,21 +53,24 @@ else{
        <?php include_once 'plugins/resources.php'?>
     </head>
     <body>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v6.0"></script>
         <!-- start header -->
         <?php include_once 'plugins/nav.php'?>
         <!-- end header -->
         <!-- start page title section -->
+     
         <section class="wow fadeIn bg-light-gray padding-35px-tb page-title-small top-space">
             <div class="container">
                 <div class="row equalize xs-equalize-auto">
-                    <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12 display-table">
+                    <div class="col-lg-7 col-md-6 col-sm-6 col-xs-12 display-table">
                         <div class="display-table-cell vertical-align-middle text-left xs-text-center">
                             <!-- start page title -->
                             <h1 class="alt-font text-extra-dark-gray font-weight-600 no-margin-bottom text-uppercase"><?=$title?></h1>
                             <!-- end page title -->
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 display-table text-right xs-text-left xs-margin-10px-top">
+                    <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 display-table text-right xs-text-left xs-margin-10px-top">
                         <div class="display-table-cell vertical-align-middle breadcrumb text-small alt-font">
                             <!-- breadcrumb -->
                             <ul class="xs-text-center text-uppercase">
@@ -81,6 +84,7 @@ else{
                 </div>
             </div>
         </section>
+        
         <!-- end page title section -->
         <!-- start post content section -->
         <!-- start section -->
@@ -107,7 +111,9 @@ else{
                         ?>
                         <div>
                             <?=$body?>
+                            <script>document.write("<div class='fb-comments' data-href='" + window.location.href + "' data-num-posts='2' data-width='470'></div>");</script>
                         </div>
+
                     </div>
 
                 </div>

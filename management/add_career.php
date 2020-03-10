@@ -93,17 +93,12 @@ else{
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
-        <div class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                    </div><!-- /.col -->
-                    <div class="col-sm-6">
-
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
-        </div>
+        <section class="content-header">
+            <ol class="breadcrumb">
+                <li><a href="careers"><i class="fa fa-dashboard"></i> Careers/</a></li>
+                <li class="active">Add career</li>
+            </ol>
+        </section>
         <!-- /.content-header -->
 
         <!-- Main content -->
@@ -135,38 +130,42 @@ else{
                             <!-- /.card-header -->
                             <!-- form start -->
                             <form role="form" method="post" action="" enctype="multipart/form-data">
+                            
                                 <div class="card-body">
+                                
                                     <div class="form-group  col-md-6">
-                                        <label for="exampleInputEmail1">Title</label>
+                                    <p>Fields marked with (<span class="text-danger">*</span>) are required</p>
+                                        <label for="exampleInputEmail1">Title<span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="exampleInputEmail1" placeholder="eg Procurement officer" name="title" required="required" value="<?=$title?>">
                                     </div>
 
                                     <div class="form-group" style="margin-left:8px;">
-                                        <label for="exampleInputEmail1">Description</label>
-                                        <textarea class="textarea" placeholder="Place some text here"
+                                        <label for="exampleInputEmail1">Description<span class="text-danger">*</span></label>
+                                        <textarea class="textarea" placeholder="Place some text here" required="required"
                                                   style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="description">
                                         <?=$description?>
                                     </textarea>
                                     </div>
 
                                     <div class="form-group  col-md-6">
-                                        <label>Job type</label>
+                                        <label>Job type<span class="text-danger">*</span></label>
                                         <select class="form-control" name="contract">
                                             <option value="full time">full time</option>
                                             <option value="part time">part time</option>
+                                            <option value="contract">contract</option>
                                         </select>
                                     </div>
 
                                     <div class="form-group  col-md-6" >
-                                        <label>State</label>
-                                        <select class="form-control" name="state">
+                                        <label>State<span class="text-danger">*</span></label>
+                                        <select class="form-control" name="state" required="required">
                                             <option value="1">active</option>
                                             <option value="0">inactive</option>
                                         </select>
                                     </div>
 
                                     <div class="form-group col-md-6">
-                                        <label for="exampleInputEmail1">Deadline</label>
+                                        <label for="exampleInputEmail1">Application deadline<span class="text-danger">*</span></label>
                                         <input type="date" class="form-control" id="exampleInputEmail1" name="deadline" required="required" value="<?=$deadline?>" >
                                     </div>
 

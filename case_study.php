@@ -45,7 +45,9 @@ $desc = $get_data['value'];
         <section class="wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
             <div class="container">
 
+                <div class="row">
                 <?=$desc?>
+                </div>
 
             </div>
         </section>

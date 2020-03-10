@@ -87,18 +87,12 @@ else{
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
-        <div class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Add reviews</h1>
-                    </div><!-- /.col -->
-                    <div class="col-sm-6">
-
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
-        </div>
+        <section class="content-header">
+            <ol class="breadcrumb">
+                <li><a href="reviews"><i class="fa fa-dashboard"></i> Reviews/</a></li>
+                <li class="active">Add review</li>
+            </ol>
+        </section>
         <!-- /.content-header -->
 
         <!-- Main content -->

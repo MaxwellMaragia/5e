@@ -92,18 +92,12 @@ else{
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
-        <div class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Add management team</h1>
-                    </div><!-- /.col -->
-                    <div class="col-sm-6">
-
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
-        </div>
+        <section class="content-header">
+            <ol class="breadcrumb">
+                <li><a href="members"><i class="fa fa-dashboard"></i> Members/</a></li>
+                <li class="active">Add member</li>
+            </ol>
+        </section>
         <!-- /.content-header -->
 
         <!-- Main content -->
@@ -137,17 +131,18 @@ else{
                             <form role="form" method="post" action="" enctype="multipart/form-data">
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Names</label>
+                                    <p>Fields marked with (<span class="text-danger">*</span>) are required</p>
+                                        <label for="exampleInputEmail1">Names<span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="exampleInputEmail1" placeholder="eg Margaret Wambui" name="name" required="required">
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Role</label>
+                                        <label for="exampleInputEmail1">Role<span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="exampleInputEmail1" placeholder="eg Managing director" name="role" required="required">
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Short description</label>
+                                        <label for="exampleInputPassword1">Short description<span class="text-danger">*</span></label>
                                         <textarea name="description" rows="3" placeholder="enter short description"
                                                   class="form-control" required="required">
                                         </textarea>
@@ -171,7 +166,7 @@ else{
 
 
                                     <div class="form-group">
-                                        <label for="exampleInputFile">Profile picture</label>
+                                        <label for="exampleInputFile">Profile picture<span class="text-danger">*</span></label>
                                         <div class="input-group">
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input" id="exampleInputFile" name="image" accept="image/*" required="required">

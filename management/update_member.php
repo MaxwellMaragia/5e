@@ -128,18 +128,15 @@ else{
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
-        <div class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Edit <?=$u_name?></h1>
-                    </div><!-- /.col -->
-                    <div class="col-sm-6">
+        
+         <section class="content-header">
+            <ol class="breadcrumb">
+                <li><a href="members"><i class="fa fa-dashboard"></i> Members/</a></li>
+                <li class="active">Edit <?=$u_name?></li>
+            </ol>
+        </section>
+        <!-- /.content-header -->
 
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
-        </div>
         <!-- /.content-header -->
 
         <!-- Main content -->
@@ -173,19 +170,20 @@ else{
                             <form role="form" method="post" action="" enctype="multipart/form-data">
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Names</label>
+                                    <p>Fields marked with (<span class="text-danger">*</span>) are required</p>
+                                        <label for="exampleInputEmail1">Names<span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="exampleInputEmail1" placeholder="eg Margaret Wambui" name="name" required="required" value="<?=$u_name?>">
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Role</label>
+                                        <label for="exampleInputEmail1">Role<span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="exampleInputEmail1" placeholder="eg Managing director" name="role" required="required" value="<?=$u_role?>">
                                         <input type="hidden" name="image" value="<?=$u_image?>">
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Short description</label>
-                                        <textarea name="description"  rows="3"
+                                        <label for="exampleInputPassword1">Short description<span class="text-danger">*</span></label>
+                                        <textarea name="description"  rows="3" cols="3"
                                                   class="form-control" required="required">
                                            <?=$u_description?>
                                         </textarea>

@@ -1,6 +1,7 @@
 <?php
 session_start();
 $_SESSION['admin']='';
+$_SESSION['names']='';
 
 if(isset($_SESSION['newLogin'])){
   $error=$_SESSION['newLogin'];
@@ -27,11 +28,28 @@ if(isset($_POST['submit']))
 
   }else{
     $where=array('username'=>$username,'password'=>$password);
-    if($obj->fetch_records('users',$where))
+    $login = $obj->fetch_records('users',$where);
+    if($login)
     {
-        $_SESSION['admin']=$username;
-        header('location:index');
 
+        foreach($login as $row)
+        {
+          $account = $row['role'];
+          $name = $row['name'];
+        }
+
+        $_SESSION['admin']=$username;
+        $_SESSION['names']=$name;
+
+        if($account==1){
+
+          header('location:index');
+
+        }else{
+
+          header('location:insights');
+        }
+        
         //remember me
         if(!empty($_POST['remember']))
         {

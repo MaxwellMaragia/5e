@@ -48,11 +48,8 @@ else{
             } else if($_FILES['image']['size'] > 1) {
 
                 //save document to folder and database
-                $filename   = uniqid() . "_" . time(); // 5dab1961e93a7_1571494241
-                $extension  = pathinfo( $_FILES["image"]["name"], PATHINFO_EXTENSION ); // jpg,pdf
-                $basename   = $filename . '.' . $extension; // 5dab1961e93a7_1571494241.jpg
-                $source       = $_FILES["image"]["tmp_name"];
-                $image = "images/" . $basename;
+                $document = "images/".$_FILES['image']['name'];
+                move_uploaded_file($_FILES['image']['tmp_name'],$document);
                 $where5 = array('name'=>'blue_section_image');
 
                 $current_file = "SELECT value FROM about WHERE name='blue_section_image'";
@@ -62,7 +59,7 @@ else{
                 unlink($d_current_file['value']);
 
 
-                $query="UPDATE `about` SET `value`='$image' WHERE `name`='blue_section_image'";
+                $query="UPDATE `about` SET `value`='$document' WHERE `name`='blue_section_image'";
                 $run=mysqli_query($connect,$query);
             }
 

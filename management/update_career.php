@@ -37,9 +37,17 @@ else{
             } else if($_FILES['document']['size'] > 1) {
 
                 //save document to folder and database
-                $document = "documents/".$_FILES['document']['name'];
+               
                 unlink($doc);
-                move_uploaded_file($_FILES['document']['tmp_name'],$document);
+                //rename file before uploading
+                $filename   = uniqid() . "_" . time(); // 5dab1961e93a7_1571494241
+                $extension  = pathinfo( $_FILES["document"]["name"], PATHINFO_EXTENSION ); // jpg,pdf
+                $basename   = $filename . '.' . $extension; // 5dab1961e93a7_1571494241.jpg
+                $source       = $_FILES["document"]["tmp_name"];
+                $document = "documents/" . $basename;
+
+                /* move the file */
+                move_uploaded_file( $source, $document );
 
                 $data = array('title'=>$title,'description'=>$description,'media'=>$document,'contract'=>$contract,'state'=>$state,'deadline'=>$deadline);
 
@@ -105,17 +113,15 @@ else{
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
-        <div class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                    </div><!-- /.col -->
-                    <div class="col-sm-6">
+         <!-- Content Header (Page header) -->
+         <section class="content-header">
+            <ol class="breadcrumb">
+                <li><a href="careers"><i class="fa fa-dashboard"></i> Careers/</a></li>
+                <li class="active">Edit career</li>
+            </ol>
+        </section>
+        <!-- /.content-header -->
 
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
-        </div>
         <!-- /.content-header -->
 
         <!-- Main content -->
@@ -149,12 +155,13 @@ else{
                             <form role="form" method="post" action="" enctype="multipart/form-data">
                                 <div class="card-body">
                                     <div class="form-group  col-md-6">
-                                        <label for="exampleInputEmail1">Title</label>
+                                    <p>Fields marked with (<span class="text-danger">*</span>) are required</p>
+                                        <label for="exampleInputEmail1">Title<span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="exampleInputEmail1" placeholder="eg Procurement officer" name="title" required="required" value="<?=$title?>">
                                     </div>
 
                                     <div class="form-group" style="margin-left:8px;">
-                                        <label for="exampleInputEmail1">Description</label>
+                                        <label for="exampleInputEmail1">Description<span class="text-danger">*</span></label>
                                         <textarea class="textarea" placeholder="Place some text here"
                                                   style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="description">
                                                         <?=$desc?>
@@ -162,7 +169,7 @@ else{
                                     </div>
 
                                     <div class="form-group  col-md-6">
-                                        <label>Job type</label>
+                                        <label>Job type<span class="text-danger">*</span></label>
                                         <select class="form-control" name="contract">
                                             <?php
                                             if($contract == 'full time')
@@ -170,10 +177,19 @@ else{
                                                 ?>
                                                 <option value="full time">full time</option>
                                                 <option value="part time">part time</option>
+                                                <option value="contract">contract</option>
+                                            <?php
+                                            }
+                                            else if($contract == 'part time'){
+                                                ?>
+                                                <option value="part time">part time</option>
+                                                <option value="full time">full time</option>
+                                                <option value="contract">contract</option>
                                             <?php
                                             }
                                             else{
                                                 ?>
+                                                <option value="contract">contract</option>
                                                 <option value="part time">part time</option>
                                                 <option value="full time">full time</option>
                                             <?php
@@ -185,7 +201,7 @@ else{
                                     </div>
 
                                     <div class="form-group  col-md-6" >
-                                        <label>State</label>
+                                        <label>State<span class="text-danger">*</span></label>
                                         <select class="form-control" name="state">
                                             <?php
                                             if($state == 0)
@@ -208,7 +224,7 @@ else{
                                     </div>
 
                                     <div class="form-group col-md-6">
-                                        <label for="exampleInputEmail1">Deadline</label>
+                                        <label for="exampleInputEmail1">Deadline<span class="text-danger">*</span></label>
                                         <input type="date" class="form-control" id="exampleInputEmail1" name="deadline" required="required" value="<?=$deadline?>">
                                     </div>
 

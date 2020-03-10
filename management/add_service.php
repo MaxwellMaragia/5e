@@ -71,18 +71,12 @@ else{
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
-        <div class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-
-                    </div><!-- /.col -->
-                    <div class="col-sm-6">
-
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
-        </div>
+        <section class="content-header">
+            <ol class="breadcrumb">
+                <li><a href="services"><i class="fa fa-dashboard"></i> Services/</a></li>
+                <li class="active">Add service</li>
+            </ol>
+        </section>
         <!-- /.content-header -->
 
         <!-- Main content -->
@@ -116,15 +110,16 @@ else{
                             <form role="form" method="post" action="" enctype="multipart/form-data">
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Heading</label>
+                                    <p>Fields marked with (<span class="text-danger">*</span>) are required</p>
+                                        <label for="exampleInputEmail1">Heading<span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Service" name="name" required="required">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Icon</label>
+                                        <label for="exampleInputPassword1">Icon<span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="exampleInputPassword1" placeholder="icon" name="icon" required="required">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Banner text</label>
+                                        <label for="exampleInputPassword1">Banner text<span class="text-danger">*</span></label>
                                         <textarea class="form-control" rows="3" placeholder="Enter ..." name="description" required="required"></textarea>
 
                                     </div>
