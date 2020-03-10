@@ -237,9 +237,9 @@ if(mysqli_num_rows($exe)>0)
 
             <aside class="col-md-3 col-sm-12 col-xs-12 pull-right">
                 <div class="display-inline-block width-100 margin-45px-bottom xs-margin-25px-bottom">
-                    <form>
+                    <form method="GET" action="search">
                         <div class="position-relative">
-                            <input type="text" class="bg-transparent text-small no-margin border-color-extra-light-gray medium-input pull-left" placeholder="Enter your keywords...">
+                            <input type="text" class="bg-transparent text-small no-margin border-color-extra-light-gray medium-input pull-left" placeholder="Enter your keywords..." name="key" required="required">
                             <button type="submit" class="bg-transparent  btn position-absolute right-0 top-1"><i class="fas fa-search no-margin-left"></i></button>
                         </div>
                     </form>

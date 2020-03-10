@@ -60,61 +60,11 @@ $youtube = $get_data['value'];
         <!-- end parallax hero section -->
 
 
-        <section class="wow fadeIn md-padding-two-lr" style="visibility: visible; animation-name: fadeIn;">
-            <div class="container">
 
-                <div class="row">
-                    <div class="col-md-8 col-sm-11 col-xs-12 center-col text-center margin-six-bottom xs-margin-30px-bottom">
-                         <div class="alt-font text-medium-gray margin-5px-bottom  text-small">Our services</div>
-                        <h6 class="font-weight-300 text-extra-dark-gray no-margin">We always stay with our <strong class="font-weight-400">clients and respect</strong> their business. We deliver 100% and provide instant response to help them succeed in constantly changing and <strong class="font-weight-400">challenging business</strong> world.</h6>
-                    </div>
-                </div>
-                <div class="row equalize">
-                    <!-- start feature box item -->
-                    <?php
-                    $sql = "SELECT * FROM services ORDER BY id DESC LIMIT 3";
-                    $exe = mysqli_query($obj->con,$sql);
-                    while($get_service = mysqli_fetch_assoc($exe))
-                    {
-                        ?>
-                        <!-- start feature box item -->
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 margin-six-bottom md-margin-six-bottom xs-margin-30px-bottom wow fadeInUp last-paragraph-no-margin" style="visibility: visible; animation-name: fadeInUp; height: 106px;">
-                            <div class="feature-box-5 position-relative">
-                                <i class="<?=$get_service['icon']?> text-medium-gray icon-medium"></i>
-                                <div class="feature-content">
-                                    <div class="text-extra-dark-gray margin-10px-bottom alt-font font-weight-600"><?=$get_service['heading']?></div>
-                                    <p><?=$get_service['body']?></p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end feature box item -->
-                        <?php
-                    }
-                    ?>
+        
 
-                    <!-- end feature box item -->
-                </div>
-                <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12 center-col text-center" style="padding-top:10px">
-                    <a href="services" class="btn btn-medium btn-rounded btn-custom-blue wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">View more</a>
-                </div>
-            </div>
-        </section>
-        <!-- start parallax with feature box section -->
-        <section class="parallax one-second-screen parallax-feature-box sm-height-auto" data-stellar-background-ratio="0.3" style="background-image:url('images/homepage-9-parallax-img2.jpg');">
-            <div class="opacity-medium bg-extra-dark-gray"></div>
-            <div class="container position-relative">
-                <div class="row">
-                    <div class="col-lg-6 col-md-8 col-sm-8 text-center center-col sm-margin-60px-bottom xs-margin-40px-bottom">
-                        <a class="popup-youtube" href="<?=$youtube?>">
-                            <img src="images/icon-play.png" class="width-130px" alt=""/></a>
-                        <h4 class="alt-font text-white">We are constantly striving to work on your idea</h4>
-                    </div>
-                </div>
 
-            </div>
-        </section>
-        <!-- end parallax with feature box section -->
-
+    
 
         <section class="wow fadeIn bg-light-gray" style="visibility: visible; animation-name: fadeIn;">
             <div class="container">
@@ -206,12 +156,85 @@ $youtube = $get_data['value'];
             </div>
         </section>
 
+        <section class="wow fadeIn cover-background half-section" style="background-image: url(&quot;images/call-to-action-bg.jpg&quot;); visibility: visible; animation-name: fadeIn;">
+            <div class="opacity-medium bg-extra-dark-gray"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <span class="text-extra-large text-white alt-font d-inline-block margin-5px-top margin-30px-right md-margin-15px-bottom sm-no-margin-right sm-no-margin-top sm-margin-15px-bottom sm-width-100">We always stay with our clients and respect their business.</span>
+                        <a href="#" class="btn btn-white btn-small align-top sm-no-margin-right">Start a Project</a>
+                    </div>                    
+                </div>
+            </div>
+        </section>
+
         <?php
         $get_reviews = $obj->fetch_all_records('reviews');
 
         if($get_reviews)
         {
+
             ?>
+
+
+<section class="wow fadeIn" style="background-image: url(&quot;images/testimonial-bg.png&quot;); visibility: visible; animation-name: fadeIn;">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-7 text-center margin-100px-bottom sm-margin-40px-bottom">
+                        <div class="position-relative overflow-hidden w-100">
+                            <span class="text-small text-outside-line-full alt-font font-weight-600 text-uppercase">Testimonial Carousel Style 03</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row position-relative">
+                    <div class="swiper-slider-third swiper-pagination-bottom swiper-container black-move testimonial-style2 text-center padding-35px-bottom md-padding-50px-bottom sm-sm-padding-30px-bottom wow fadeIn swiper-container-initialized swiper-container-horizontal" style="visibility: visible; animation-name: fadeIn;">
+                        <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
+                        <?php
+                                foreach($get_reviews as $row)
+                                {
+                                    if($row['image'])
+                                    {
+                                        $image = "management/".$row['image'];
+                                    }
+                                    else{
+                                        $image = 'management/images/reviews/user.jpg';
+                                    }
+                                    ?>
+                                    
+                            <!-- start testimonial item -->
+                            <div class="swiper-slide swiper-slide-active" style="width: 400px;">
+                                <div class="row justify-content-center m-0">
+                                    <div class="col-12 col-xl-7 col-lg-8 col-md-10">
+                                        <div class="testimonia-block width-90 sm-width-100 mx-auto">
+                                            <div class="bg-light-gray text-center padding-60px-all border-radius-6 sm-padding-20px-all">
+                                                <p><?=$row['review']?></p>
+                                            </div>
+                                            <div class="profile-box">
+                                            <img src="<?=$image?>" class="border-radius-100 width-40 margin-25px-bottom sm-margin-15px-bottom" alt="<?=$row['name']?>" data-no-retina="" style="height:90px; width:90px;">
+                                                <div class="w-100 last-paragraph-no-margin">
+                                                    <p class="alt-font text-small font-weight-600 text-black text-uppercase margin-5px-bottom"><?=$row['name']?></p>
+                                                    <p class="text-uppercase text-extra-small text-medium-gray"><?=$row['role']?></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                            <!-- end testimonial item -->
+                                <?php
+                                }
+                                ?>
+                            
+      
+                        </div>
+                        <div class="swiper-pagination swiper-pagination-third swiper-pagination-clickable swiper-pagination-bullets"><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 1"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3"></span></div>
+                        <div class="swiper-button-next slider-long-arrow-white d-none" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false"></div>
+                        <div class="swiper-button-prev slider-long-arrow-white d-none swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true"></div>
+                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                </div>
+            </div> 
+        </section>
+
             <section class="bg-black wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
                 <div class="container">
                     <div class="row">

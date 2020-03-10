@@ -78,8 +78,22 @@
                               </ul>
                             </div>
                         </div>
-
+                        <div class="col-auto pr-0">
+                        <div class="header-searchbar" style="margin-top:10px;margin-right:20px;">
+                            <a href="#search-header" class="header-search-form" ><i class="fas fa-search search-button"></i></a>
+                            <!-- search input-->
+                            <form id="search-header" method="get" action="search" name="search-header" class="mfp-hide search-form-result">
+                                <div class="search-form position-relative">
+                                    <button type="submit" class="fas fa-search close-search search-button"></button>
+                                    <input type="text" name="key" class="search-input" placeholder="Enter your keywords..." autocomplete="off" required="required" >
+                                </div>
+                            </form>
+                        </div>
+                        
                     </div>
+                    </div>
+
+                
                 </div>
             </nav>
             <!-- end navigation -->
