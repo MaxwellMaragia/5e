@@ -4,8 +4,9 @@ include_once 'functions/functions.php';
 if(isset($_GET['key']))
 {
     $keyword = $obj->con->real_escape_string(htmlentities($_GET['key']));
+   
 
-    $sql = "SELECT COUNT(id) FROM news WHERE state=1 AND body LIKE'%$keyword%' OR heading LIKE '%$keyword%'";
+    $sql = "SELECT COUNT(id) FROM news WHERE MATCH (heading,keywords) AGAINST ('$keyword' IN NATURAL LANGUAGE MODE)";
     $exe = mysqli_query($obj->con,$sql);
     $row = mysqli_fetch_row($exe);
 
@@ -45,7 +46,8 @@ if(isset($_GET['key']))
     $limit = 'LIMIT ' .($pagenum - 1) * $page_rows .',' .$page_rows;
 
     //this is the query that grabs only one page worth of rows
-    $sql = "SELECT * FROM news WHERE state=1 AND body LIKE'%$keyword%' OR heading LIKE '%$keyword%' ORDER BY id DESC $limit";
+    
+    $sql = "SELECT * FROM news WHERE MATCH (heading,keywords) AGAINST ('$keyword' IN NATURAL LANGUAGE MODE) $limit";
     $query = mysqli_query($obj->con,$sql);
 
     //establish the pagination control variables
@@ -132,7 +134,9 @@ else{
                     <main class="col-12 col-lg-9 right-sidebar md-padding-15px-lr">
                         
                     <?php
-                     if($rows>1){
+                     if($rows>0){
+
+                        
                         while ($row = mysqli_fetch_assoc($query))
                         {
                             $aid = $row['author'];

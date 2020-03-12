@@ -34,6 +34,7 @@ if($_SESSION['admin'])
         $category = $obj->con->real_escape_string(htmlentities($_POST['category']));
         $heading = $obj->con->real_escape_string(htmlentities($_POST['title']));
         $body = $obj->con->real_escape_string($_POST['body']);
+        $keywords = strip_tag($body);
 
 
         //get id which news will fall into
@@ -82,6 +83,7 @@ if($_SESSION['admin'])
                         'category'=>$category,
                         'heading'=>$heading,
                         'body'=>"$body",
+                        'keywords'=>$keywords,
                         'media_type'=>$media_type,
                         'author'=>$aid,
                         'date'=>$date,
@@ -119,6 +121,7 @@ if($_SESSION['admin'])
                         'category'=>$category,
                         'heading'=>$heading,
                         'body'=>"$body",
+                        'keywords'=>$keywords,
                         'media_type'=>$media_type,
                         'author'=>$aid,
                         'date'=>$date,
