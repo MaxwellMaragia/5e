@@ -15,7 +15,7 @@ if(isset($_GET['key']))
     $rows = $row[0];
 
     //total number of results displayed per page
-    $page_rows = 2;
+    $page_rows = 5;
     $last = ceil($rows/$page_rows);
 
     //make sure last cannot be less than one
