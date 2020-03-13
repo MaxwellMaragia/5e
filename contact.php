@@ -69,7 +69,7 @@ include_once 'functions/functions.php';
         <section class="no-padding bg-extra-dark-gray">
             <div class="container-fluid">
                 <div class="row equalize sm-equalize-auto">
-                    <div class="col-md-6 col-sm-12 no-padding cover-background sm-height-450px xs-height-350px wow fadeInLeft" style="background: url(images/nairobi.jpg)"></div>
+                    <div class="col-md-6 col-sm-12 no-padding cover-background sm-height-450px xs-height-350px wow fadeInLeft" style="background: url(management/images/nairobi-kenya-wallpaper.jpg)"></div>
                     <div class="col-md-6 col-sm-12 no-padding col-2-nth wow fadeInRight">
                         <!-- start contact item -->
                         <div class="col-md-6 col-sm-6 col-xs-12 display-table bg-extra-dark-gray height-350px last-paragraph-no-margin">
